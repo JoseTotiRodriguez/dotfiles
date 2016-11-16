@@ -22,3 +22,11 @@ alias ..="cd .."          # Go up one directory
 alias ...="cd ../.."      # Go up two directories
 alias ....="cd ../../.."  # Go up three directories
 alias desk="cd ~/Desktop"
+alias apps="cd ~/Documents/apps/"
+alias droid="cd ~/Documents/apps/android"
+alias ios="cd ~/Documents/apps/ios"
+
+
+
+export NVM_DIR="/Users/jose_rodriguez/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
