@@ -37,6 +37,14 @@ if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     if [[ ! -d $dir/oh-my-zsh/ ]]; then
         git clone http://github.com/robbyrussell/oh-my-zsh.git
     fi
+    # Clone my syntax highlighting repository from GitHub only if it isn't already present
+    if [[ ! -d $dir/oh-my-zsh/plugins/zsh-syntax-highlighting ]]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    fi
+    # Clone my fish style auto completion repository from GitHub only if it isn't already present
+    if [[ ! -d $dir/oh-my-zsh/plugins/zsh-autosuggestions ]]; then
+        git clone git://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    fi
     # Set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
         chsh -s $(which zsh)
@@ -63,3 +71,4 @@ fi
 }
 
 install_zsh
+source ~/.zshrc

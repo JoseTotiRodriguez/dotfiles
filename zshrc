@@ -10,7 +10,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git adb droplr history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -24,9 +24,43 @@ alias ....="cd ../../.."  # Go up three directories
 alias desk="cd ~/Desktop"
 alias apps="cd ~/Documents/apps/"
 alias droid="cd ~/Documents/apps/android"
+alias droid-copy="cd ~/Documents/apps-copy/android"
 alias ios="cd ~/Documents/apps/ios"
-
-
 
 export NVM_DIR="/Users/jose_rodriguez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+# Android
+setupBuckDroid() {
+	cd ~/Documents/apps/android
+	./buckw project
+}
+
+runReactDroid() {
+    cd ~/Documents/apps/react-native
+    npm i && npm run dev
+}
+
+runBuckDroid() {
+	cd ~/Documents/apps/android
+	./buckw install -r -x airbnbDebug
+}
+
+runBuckDroidCopy() {
+	cd ~/Documents/apps-copy/android
+	./buckw install -r -x airbnbDebug
+}
+
+runBuckN2Playground() {
+	cd ~/Documents/apps/android
+	./buckw install -r -x n2playgroundDebug
+}
+
+runBuckN2PlaygroundCopy() {
+	cd ~/Documents/apps-copy/android
+	./buckw install -r -x n2playgroundDebug
+}
+
+# Ruby required for Android app
+eval "$(rbenv init -)"

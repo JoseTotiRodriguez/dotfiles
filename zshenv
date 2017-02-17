@@ -17,4 +17,5 @@ export PATH=$PATH:$HOME/bin
 
 # android
 export ANDROID_HOME=~/Library/Android/sdk
-export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
+export ANDROID_NDK=~/Library/Android/sdk/ndk-bundle
+export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_NDK:$PATH"
