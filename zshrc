@@ -26,6 +26,7 @@ alias apps="cd ~/Documents/apps/"
 alias droid="cd ~/Documents/apps/android"
 alias droid-copy="cd ~/Documents/apps-copy/android"
 alias ios="cd ~/Documents/apps/ios"
+alias airrepo="cd ~/airlab"
 
 export NVM_DIR="/Users/jose_rodriguez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
