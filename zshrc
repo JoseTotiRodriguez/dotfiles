@@ -88,15 +88,15 @@ reactDroid() {
 
 ba() {
 	cd ~/Documents/apps/android
-	echo "./buckw install -r -x airbnbDebug"
-	./buckw install -r -x airbnbDebug
+	echo "./buckw install -r -x airbnbFullDebug"
+	./buckw install -r -x airbnbFullDebug
   buildFinished # notify
 }
 
 bac() {
 	cd ~/Documents/apps-copy/android
-	echo "./buckw install -r -x airbnbDebug"
-	./buckw install -r -x airbnbDebug
+	echo "./buckw install -r -x airbnbFullDebug"
+	./buckw install -r -x airbnbFullDebug
   buildFinished # notify
 }
 
@@ -131,3 +131,12 @@ bug() {
 
 # Ruby required for Android app
 eval "$(rbenv init -)"
+
+# AIRLAB-DO-NOT-MODIFY section:ShellWrapper {{{
+# Airlab will only make edits inside these delimiters.
+
+# Source Airlab's shell integration, if it exists.
+if [ -e ~/.airlab/shellhelper.sh ]; then
+  source ~/.airlab/shellhelper.sh
+fi
+# AIRLAB-DO-NOT-MODIFY section:ShellWrapper }}}
