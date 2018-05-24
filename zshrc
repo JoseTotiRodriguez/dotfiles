@@ -75,9 +75,9 @@ fixAdb() {
 # Apps Build
 
 bs() {
-  	cd ~/Documents/apps/android
-  	echo "./buckw project"
-  	./buckw project
+    cd ~/Documents/apps/android
+    echo "./buckw project"
+    ./buckw project
     ba # build onto device
 }
 
@@ -94,30 +94,30 @@ b() {
 }
 
 ba() {
-  	cd ~/Documents/apps/android
-  	echo "./buckw install -r -x airbnbFullDebug"
-  	./buckw install -r -x airbnbFullDebug
+    cd ~/Documents/apps/android
+    echo "./buckw install -r -x airbnbFullDebug"
+    ./buckw install -r -x airbnbFullDebug
     buildFinished # notify
 }
 
 bac() {
-  	cd ~/Documents/apps-copy/android
-  	echo "./buckw install -r -x airbnbFullDebug"
-  	./buckw install -r -x airbnbFullDebug
+    cd ~/Documents/apps-copy/android
+    echo "./buckw install -r -x airbnbFullDebug"
+    ./buckw install -r -x airbnbFullDebug
     buildFinished # notify
 }
 
 bp() {
-  	cd ~/Documents/apps/android
-  	echo "./buckw install -r -x planetariumDebug"
-  	./buckw install -r -x planetariumDebug
+    cd ~/Documents/apps/android
+    echo "./buckw install -r -x planetariumDebug"
+    ./buckw install -r -x planetariumDebug
     buildFinished # notify
 }
 
 bpc() {
-  	echo "./buckw install -r -x planetariumDebug"
-  	cd ~/Documents/apps-copy/android
-  	./buckw install -r -x planetariumDebug
+    echo "./buckw install -r -x planetariumDebug"
+    cd ~/Documents/apps-copy/android
+    ./buckw install -r -x planetariumDebug
     buildFinished # notify
 }
 
