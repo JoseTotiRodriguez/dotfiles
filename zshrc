@@ -60,25 +60,25 @@ function pullrecord() {
 }
 
 androidScreenshot() {
-  echo "Taking screenshot..."
-  current_time=$(date +"%Y-%m-%d-%S")
-  adb shell screencap -p "/mnt/sdcard/$current_time.png"
-  adb pull /mnt/sdcard/$current_time.png ~/Desktop/$current_time.png
-  adb shell rm "/mnt/sdcard/$current_time.png"
+    echo "Taking screenshot..."
+    current_time=$(date +"%Y-%m-%d-%S")
+    adb shell screencap -p "/mnt/sdcard/$current_time.png"
+    adb pull /mnt/sdcard/$current_time.png ~/Desktop/$current_time.png
+    adb shell rm "/mnt/sdcard/$current_time.png"
 }
 
 fixAdb() {
-  adb kill-server
-  adb devices
+    adb kill-server
+    adb devices
 }
 
 # Apps Build
 
 bs() {
-	cd ~/Documents/apps/android
-	echo "./buckw project"
-	./buckw project
-  ba # build onto device
+  	cd ~/Documents/apps/android
+  	echo "./buckw project"
+  	./buckw project
+    ba # build onto device
 }
 
 reactDroid() {
@@ -87,52 +87,52 @@ reactDroid() {
 }
 
 b() {
-  cd ~/Documents/apps/android
-  echo "./buckw install -r -x airbnb$1Debug"
-  ./buckw install -r -x airbnb$1Debug
-  buildFinished # notify
+    cd ~/Documents/apps/android
+    echo "./buckw install -r -x airbnb$1Debug"
+    ./buckw install -r -x airbnbLuxDebug
+    buildFinished # notify
 }
 
 ba() {
-	cd ~/Documents/apps/android
-	echo "./buckw install -r -x airbnbFullDebug"
-	./buckw install -r -x airbnbFullDebug
-  buildFinished # notify
+  	cd ~/Documents/apps/android
+  	echo "./buckw install -r -x airbnbFullDebug"
+  	./buckw install -r -x airbnbFullDebug
+    buildFinished # notify
 }
 
 bac() {
-	cd ~/Documents/apps-copy/android
-	echo "./buckw install -r -x airbnbFullDebug"
-	./buckw install -r -x airbnbFullDebug
-  buildFinished # notify
+  	cd ~/Documents/apps-copy/android
+  	echo "./buckw install -r -x airbnbFullDebug"
+  	./buckw install -r -x airbnbFullDebug
+    buildFinished # notify
 }
 
 bp() {
-	cd ~/Documents/apps/android
-	echo "./buckw install -r -x planetariumDebug"
-	./buckw install -r -x planetariumDebug
-  buildFinished # notify
+  	cd ~/Documents/apps/android
+  	echo "./buckw install -r -x planetariumDebug"
+  	./buckw install -r -x planetariumDebug
+    buildFinished # notify
 }
 
 bpc() {
-	echo "./buckw install -r -x planetariumDebug"
-	cd ~/Documents/apps-copy/android
-	./buckw install -r -x planetariumDebug
-  buildFinished # notify
+  	echo "./buckw install -r -x planetariumDebug"
+  	cd ~/Documents/apps-copy/android
+  	./buckw install -r -x planetariumDebug
+    buildFinished # notify
 }
 
 buildFinished() {
-  osascript -e 'display notification with title "Buck Build Finished"'
+    osascript -e 'display notification with title "Buck Build Finished"'
 }
 
 # Helpful shortcuts
 
 pr() {
-	open https://git.musta.ch/airbnb/apps/pull/$1
+    open https://git.musta.ch/airbnb/apps/pull/$1
 }
 
 bug() {
-	open https://jira.airbnb.biz/browse/$1
+    open https://jira.airbnb.biz/browse/$1
 }
 
 
@@ -144,6 +144,6 @@ eval "$(rbenv init -)"
 
 # Source Airlab's shell integration, if it exists.
 if [ -e ~/.airlab/shellhelper.sh ]; then
-  source ~/.airlab/shellhelper.sh
+    source ~/.airlab/shellhelper.sh
 fi
 # AIRLAB-DO-NOT-MODIFY section:ShellWrapper }}}
