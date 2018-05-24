@@ -86,6 +86,13 @@ reactDroid() {
     npm i && npm run dev
 }
 
+b() {
+  cd ~/Documents/apps/android
+  echo "./buckw install -r -x airbnb$1Debug"
+  ./buckw install -r -x airbnb$1Debug
+  buildFinished # notify
+}
+
 ba() {
 	cd ~/Documents/apps/android
 	echo "./buckw install -r -x airbnbFullDebug"
@@ -102,15 +109,15 @@ bac() {
 
 bp() {
 	cd ~/Documents/apps/android
-	echo "./buckw install -r -x n2playgroundDebug"
-	./buckw install -r -x n2playgroundDebug
+	echo "./buckw install -r -x planetariumDebug"
+	./buckw install -r -x planetariumDebug
   buildFinished # notify
 }
 
 bpc() {
-	echo "./buckw install -r -x n2playgroundDebug"
+	echo "./buckw install -r -x planetariumDebug"
 	cd ~/Documents/apps-copy/android
-	./buckw install -r -x n2playgroundDebug
+	./buckw install -r -x planetariumDebug
   buildFinished # notify
 }
 
