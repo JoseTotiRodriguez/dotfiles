@@ -10,7 +10,16 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git adb droplr history-substring-search zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+    git
+    adb
+    droplr
+    history-substring-search
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fzf
+    tmux
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -27,8 +36,13 @@ alias rdroid="cd ~/Documents/apps/android"
 alias rdroid-copy="cd ~/Documents/apps-copy/android"
 alias rios="cd ~/Documents/apps/ios"
 alias rlab="cd ~/airlab"
-alias rairbnb="cd ~/airlab/repos/airbnb"
+alias rbnb="cd ~/airlab/repos/airbnb"
+alias rth="cd ~/airlab/repos/treehouse"
+alias rlab-shared="cd ~/airlab-shared"
+alias rbnb-shared="cd ~/airlab-shared/repos/airbnb"
+alias rth-shared="cd ~/airlab-shared/repos/treehouse"
 alias stetho="osascript ~/dotfiles/scripts/stetho.applescript"
+alias glt="git pull --tags"
 
 export NVM_DIR="/Users/jose_rodriguez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -89,7 +103,7 @@ reactDroid() {
 b() {
     cd ~/Documents/apps/android
     echo "./buckw install -r -x airbnb$1Debug"
-    ./buckw install -r -x airbnbLuxDebug
+    ./buckw install -r -x airbnb$1Debug
     buildFinished # notify
 }
 
@@ -125,10 +139,15 @@ buildFinished() {
     osascript -e 'display notification with title "Buck Build Finished"'
 }
 
+
 # Helpful shortcuts
 
 pr() {
     open https://git.musta.ch/airbnb/apps/pull/$1
+}
+
+prct() {
+    open https://git.musta.ch/airbnb/treehouse/pulls?q=is%3Apr++$1
 }
 
 bug() {
@@ -144,6 +163,8 @@ eval "$(rbenv init -)"
 
 # Source Airlab's shell integration, if it exists.
 if [ -e ~/.airlab/shellhelper.sh ]; then
-    source ~/.airlab/shellhelper.sh
+  source ~/.airlab/shellhelper.sh
 fi
 # AIRLAB-DO-NOT-MODIFY section:ShellWrapper }}}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
