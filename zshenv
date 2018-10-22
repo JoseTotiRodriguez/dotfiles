@@ -5,6 +5,7 @@
 # utilities
 
 export EDITOR='subl'
+export TERM=xterm-256color
 
 # local tools
 
