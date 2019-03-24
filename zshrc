@@ -13,13 +13,21 @@ ZSH_THEME="robbyrussell"
 plugins=(
     git
     adb
-    droplr
-    history-substring-search
-    zsh-autosuggestions
     zsh-syntax-highlighting
+    zsh-autosuggestions
+    history-substring-search
     fzf
     tmux
 )
+# This depends on the following being installed:
+# brew install tmux
+# brew install fzf
+# Manual install of https://github.com/gpakosz/.tmux
+# brew install reattach-to-user-namespace for copy-pasting from tmux
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -33,16 +41,14 @@ alias ....="cd ../../.."  # Go up three directories
 alias desk="cd ~/Desktop"
 alias rapps="cd ~/Documents/apps/"
 alias rdroid="cd ~/Documents/apps/android"
-alias rdroid-copy="cd ~/Documents/apps-copy/android"
 alias rios="cd ~/Documents/apps/ios"
 alias rlab="cd ~/airlab"
 alias rbnb="cd ~/airlab/repos/airbnb"
 alias rth="cd ~/airlab/repos/treehouse"
-alias rlab-shared="cd ~/airlab-shared"
-alias rbnb-shared="cd ~/airlab-shared/repos/airbnb"
-alias rth-shared="cd ~/airlab-shared/repos/treehouse"
 alias stetho="osascript ~/dotfiles/scripts/stetho.applescript"
 alias glt="git pull --tags"
+alias sublAirbnb="subl ~/airlab/repos/airbnb"
+alias rth-example="cd ~/Documents/treehouse-example"
 
 export NVM_DIR="/Users/jose_rodriguez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -95,11 +101,6 @@ bs() {
     ba # build onto device
 }
 
-reactDroid() {
-    cd ~/Documents/apps/react-native
-    npm i && npm run dev
-}
-
 b() {
     cd ~/Documents/apps/android
     echo "./buckw install -r -x airbnb$1Debug"
@@ -114,23 +115,9 @@ ba() {
     buildFinished # notify
 }
 
-bac() {
-    cd ~/Documents/apps-copy/android
-    echo "./buckw install -r -x airbnbFullDebug"
-    ./buckw install -r -x airbnbFullDebug
-    buildFinished # notify
-}
-
 bp() {
     cd ~/Documents/apps/android
     echo "./buckw install -r -x planetariumDebug"
-    ./buckw install -r -x planetariumDebug
-    buildFinished # notify
-}
-
-bpc() {
-    echo "./buckw install -r -x planetariumDebug"
-    cd ~/Documents/apps-copy/android
     ./buckw install -r -x planetariumDebug
     buildFinished # notify
 }
@@ -142,11 +129,15 @@ buildFinished() {
 
 # Helpful shortcuts
 
-pr() {
+pra() {
     open https://git.musta.ch/airbnb/apps/pull/$1
 }
 
-prct() {
+prt() {
+	open https://git.musta.ch/airbnb/treehouse/pull/$1
+}
+
+prt-commit() {
     open https://git.musta.ch/airbnb/treehouse/pulls?q=is%3Apr++$1
 }
 
@@ -166,5 +157,3 @@ if [ -e ~/.airlab/shellhelper.sh ]; then
   source ~/.airlab/shellhelper.sh
 fi
 # AIRLAB-DO-NOT-MODIFY section:ShellWrapper }}}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
