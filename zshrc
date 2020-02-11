@@ -31,6 +31,13 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# yak autocomplete
+source <(yak completion zsh)
+
+# kubectl autocomplete (also with k alias)
+source <(kubectl completion zsh)
+complete -F __start_kubectl k
+
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
@@ -96,29 +103,29 @@ fixAdb() {
 
 bs() {
     cd ~/Documents/apps/android
-    echo "./buckw project"
-    ./buckw project
+    echo "./gero bp"
+    ./gero bp
     ba # build onto device
 }
 
 b() {
     cd ~/Documents/apps/android
-    echo "./buckw install -r -x airbnb$1Debug"
-    ./buckw install -r -x airbnb$1Debug
+    echo "./gero install -r -x airbnb$1Debug"
+    ./gero install -r -x airbnb$1Debug
     buildFinished # notify
 }
 
 ba() {
     cd ~/Documents/apps/android
-    echo "./buckw install -r -x airbnbFullDebug"
-    ./buckw install -r -x airbnbFullDebug
+    echo "./gero install -r -x airbnbFullDebug"
+    ./gero install -r -x airbnbFullDebug
     buildFinished # notify
 }
 
 bp() {
     cd ~/Documents/apps/android
-    echo "./buckw install -r -x planetariumDebug"
-    ./buckw install -r -x planetariumDebug
+    echo "./gero install -r -x planetariumDebug"
+    ./gero install -r -x planetariumDebug
     buildFinished # notify
 }
 
