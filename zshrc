@@ -15,7 +15,6 @@ plugins=(
     adb
     zsh-syntax-highlighting
     zsh-autosuggestions
-    history-substring-search
     fzf
     tmux
 )
@@ -26,7 +25,6 @@ plugins=(
 # brew install reattach-to-user-namespace for copy-pasting from tmux
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 
 
 source $ZSH/oh-my-zsh.sh
@@ -54,11 +52,10 @@ alias rbnb="cd ~/airlab/repos/airbnb"
 alias rth="cd ~/airlab/repos/treehouse"
 alias stetho="osascript ~/dotfiles/scripts/stetho.applescript"
 alias glt="git pull --tags"
-alias sublAirbnb="subl ~/airlab/repos/airbnb"
-alias rth-example="cd ~/Documents/treehouse-example"
 
 export NVM_DIR="/Users/jose_rodriguez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # Android
@@ -164,3 +161,5 @@ if [ -e ~/.airlab/shellhelper.sh ]; then
   source ~/.airlab/shellhelper.sh
 fi
 # AIRLAB-DO-NOT-MODIFY section:ShellWrapper }}}
+eval "$(pyenv init -)"
+
