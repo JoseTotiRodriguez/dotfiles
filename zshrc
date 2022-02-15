@@ -30,7 +30,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # yak autocomplete
-source <(yak completion zsh)
+autoload -U compinit; compinit
 
 # kubectl autocomplete (also with k alias)
 source <(kubectl completion zsh)
@@ -53,10 +53,42 @@ alias rth="cd ~/airlab/repos/treehouse"
 alias stetho="osascript ~/dotfiles/scripts/stetho.applescript"
 alias glt="git pull --tags"
 
+
 export NVM_DIR="/Users/jose_rodriguez/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# yak
+
+ylisten() {
+    echo "Running kubectl --context airdev-a --namespace airbob-staging port-forward $(kubectl get pod --context=airdev-a -o=name -n airbob-staging | grep jose-rodriguez) 5005"
+    kubectl --context airdev-a --namespace airbob-staging port-forward $(kubectl get pod --context=airdev-a -o=name -n airbob-staging | grep jose-rodriguez) 5005
+}
+
+ybBDeploy() {
+    echo "Running yak deploy -b bazel"
+    yak deploy -b bazel
+}
+
+ybReload() {
+    echo "Running yak reload $1 -b bazel"
+    yak reload $1 -b bazel
+}
+
+yr() {
+    echo "Running yak remote -- $1"
+    yak remote -- $1
+}
+
+ytestDebug() {
+    echo "Running yak remote -- ./gradlew :projects:viaduct:$1:test  --debug-jvm"
+    yak remote -- ./gradlew :projects:viaduct:$1:test  --debug-jvm
+}
+
+ytest() {
+    echo "Running yak remote -- ./gradlew :projects:viaduct:$1:test"
+    yak remote -- ./gradlew :projects:viaduct:$1:test
+}
 
 # Android
 

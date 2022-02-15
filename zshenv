@@ -31,3 +31,5 @@ export ANDROID_NDK="$ANDROID_HOME/ndk/21.0.6113669"
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$ANDROID_HOME/tools:$PATH"
 
+
+export TREEHOUSE_ENABLE_ROOT_TASK=true
