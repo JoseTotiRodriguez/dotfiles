@@ -60,19 +60,10 @@ export NVM_DIR="/Users/jose_rodriguez/.nvm"
 
 # yak
 
+# portforward to jvm-debug port
 ylisten() {
     echo "Running kubectl --context airdev-a --namespace airbob-staging port-forward $(kubectl get pod --context=airdev-a -o=name -n airbob-staging | grep jose-rodriguez) 5005"
     kubectl --context airdev-a --namespace airbob-staging port-forward $(kubectl get pod --context=airdev-a -o=name -n airbob-staging | grep jose-rodriguez) 5005
-}
-
-ybBDeploy() {
-    echo "Running yak deploy -b bazel"
-    yak deploy -b bazel
-}
-
-ybReload() {
-    echo "Running yak reload $1 -b bazel"
-    yak reload $1 -b bazel
 }
 
 yr() {
@@ -81,13 +72,23 @@ yr() {
 }
 
 ytestDebug() {
-    echo "Running yak remote -- ./gradlew :projects:viaduct:$1:test  --debug-jvm"
-    yak remote -- ./gradlew :projects:viaduct:$1:test  --debug-jvm
+    echo "Running yak test $1 --debug-jvm"
+    yak test $1 --debug-jvm
 }
 
 ytest() {
-    echo "Running yak remote -- ./gradlew :projects:viaduct:$1:test"
-    yak remote -- ./gradlew :projects:viaduct:$1:test
+    echo "Running yak test $1"
+    yak test $1
+}
+
+ytestViaductDebug() {
+    echo "Running yak test :projects:viaduct:${1}:test  --debug-jvm"
+    yak test :projects:viaduct:${1}:test  --debug-jvm
+}
+
+ytestViaduct() {
+    echo "Running yak test :projects:viaduct:${1}:test"
+    yak test :projects:viaduct:${1}:test
 }
 
 # Android
